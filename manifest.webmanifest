@@ -1,0 +1,26 @@
+{
+  "name": "Bildungswege Baden-Württemberg",
+  "short_name": "Bildungswege BW",
+  "description": "Finde deinen Weg zum Wunschabschluss – individuell und übersichtlich",
+  "start_url": "/HPMS_App_v1/index.html",
+  "scope": "/HPMS_App_v1/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F7F3EE",
+  "theme_color": "#D4622A",
+  "lang": "de",
+  "icons": [
+    {
+      "src": "/HPMS_App_v1/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/HPMS_App_v1/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
