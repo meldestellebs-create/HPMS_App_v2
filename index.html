@@ -3640,7 +3640,7 @@ tbody td strong { font-weight: 700; color: var(--ink); }
   </nav>
 </div>
 
-id="tool-tab" class="tab-content active">
+<div id="tool-tab" class="tab-content active">
   <div class="split-container">
     <!-- Left Section: Start -->
     <div class="split-section left">
@@ -3728,9 +3728,7 @@ id="tool-tab" class="tab-content active">
 </div>
 
 <!-- ==================== TAB 2: Begriffe erklärt ==================== -->
-<div
-
-id="begriffe-tab" class="tab-content">
+<div id="begriffe-tab" class="tab-content">
   <div class="glossary-container">
     <div class="header" style="margin-bottom: 40px;">
       <h1 style="font-size: 2rem;">💡 Begriffe erklärt</h1>
@@ -3852,9 +3850,7 @@ id="begriffe-tab" class="tab-content">
 </div>
 
 <!-- ==================== TAB 3: Berufswahl-Quiz ==================== -->
-<div
-
-id="quiz-tab" class="tab-content">
+<div id="quiz-tab" class="tab-content">
   <div class="quiz-container">
     <div class="quiz-start" id="quiz-start">
       <h2>🎯 Finde deinen Beruf</h2>
@@ -3876,9 +3872,7 @@ id="quiz-tab" class="tab-content">
 
 
 <!-- ==================== TAB 5: Schule und dann? ==================== -->
-<div
-
-id="schule-tab" class="tab-content">
+<div id="schule-tab" class="tab-content">
   <div style="max-width: 1500px; margin: 0 auto; padding: 40px 20px;">
     <div class="header" style="margin-bottom: 40px;">
       <h1 style="font-size: 2rem;">🎓 Schule und dann?</h1>
@@ -4215,9 +4209,7 @@ id="schule-tab" class="tab-content">
 
 <!-- TAB 6: Berufliche Schulen (DUMMY Preview) -->
 
-<div
-
-id="berufliche-schulen-tab" class="tab-content">
+<div id="berufliche-schulen-tab" class="tab-content">
   <div style="max-width: 1500px; margin: 0 auto; padding: 40px 20px 60px;">
 
     <div class="header" style="margin-bottom: 40px;">
@@ -4829,9 +4821,7 @@ id="berufliche-schulen-tab" class="tab-content">
 <!-- END berufliche-schulen-tab -->
 
 <!-- ==================== TAB 7: Ausbildungssuche ==================== -->
-<div
-
-id="ausbildungssuche-tab" class="tab-content">
+<div id="ausbildungssuche-tab" class="tab-content">
 
 
 <div class="as-container">
@@ -4972,9 +4962,7 @@ id="ausbildungssuche-tab" class="tab-content">
 <!-- END ausbildungssuche-tab -->
 
 <!-- ==================== TAB 7: SCHULEN-MATRIX ==================== -->
-<div
-
-id="schulmatrix-tab" class="tab-content">
+<div id="schulmatrix-tab" class="tab-content">
 
 
 
@@ -5114,9 +5102,7 @@ id="schulmatrix-tab" class="tab-content">
 <!-- END schulmatrix-tab -->
 
 <!-- ==================== TAB 9: Neu in Stuttgart ==================== -->
-<div
-
-id="neu-in-stuttgart-tab" class="tab-content">
+<div id="neu-in-stuttgart-tab" class="tab-content">
 
 
 <div class="nis-wrap">
@@ -5561,9 +5547,7 @@ id="neu-in-stuttgart-tab" class="tab-content">
 <!-- END neu-in-stuttgart-tab -->
 
 <!-- ===================== UNTERSTÜTZUNG TAB ===================== -->
-<div
-
-id="unterstuetzung-tab" class="tab-content">
+<div id="unterstuetzung-tab" class="tab-content">
 
 
 <div class="ust-wrapper">
@@ -7715,6 +7699,206 @@ const ACC_LABELS = {
 // State
 let smCurrentView = 'table';
 let smActiveSchoolFilter = '';
+
+
+// ===== SCHULEN-MATRIX DATA =====
+const SM_SCHOOLS = [
+  "Gew. Schule für Farbe und Gestaltung",
+  "Gewerbliche Schule für Holztechnik",
+  "Gew. Schule im Hoppenlau",
+  "it.schule stuttgart",
+  "Johannes-Gutenberg-Schule",
+  "Kerschensteinerschule",
+  "Max-Eyth-Schule",
+  "Robert-Bosch-Schule",
+  "Robert-Mayer-Schule",
+  "Steinbeisschule",
+  "Werner-Siemens-Schule",
+  "Wilhelm-Maybach-Schule",
+  "Kaufmännische Schule 1",
+  "Kaufmännische Schule Stuttgart-Nord",
+  "Louis-Leitz-Schule",
+  "Johann-Friedrich-von-Cotta-Schule",
+  "Wirtschaftsgymnasium West",
+  "Hedwig-Dohm-Schule",
+  "Alexander-Fleming-Schule",
+  "Landwirtschaftliche Schule"
+];
+
+const SM_SCHOOL_SHORT = [
+  "Farbe+Gest.",
+  "Holztechnik",
+  "Hoppenlau",
+  "it.schule",
+  "Gutenberg",
+  "Kersch.",
+  "Max-Eyth",
+  "Ro.-Bosch",
+  "Ro.-Mayer",
+  "Steinbeis",
+  "Werner-S.",
+  "Maybach",
+  "Kfm. 1",
+  "Kfm. Nord",
+  "Louis-Leitz",
+  "Cotta",
+  "WG West",
+  "Hedwig-D.",
+  "Fleming",
+  "Landwirtsch."
+];
+
+const SM_TOTAL = SM_DATA.length;
+
+const SM_DATA = [
+
+  // ---- BERUFSSCHULEN ----
+  { id: 1, cat: "Berufsschulen", catCode: "Berufsschulen", label: "Agrarwirtschaft", schools: [19], access: [ACC.HSA, ACC.MR] },
+  { id: 2, cat: "Berufsschulen", catCode: "Berufsschulen", label: "Bautechnik", schools: [9], access: [ACC.HSA, ACC.MR] },
+  { id: 3, cat: "Berufsschulen", catCode: "Berufsschulen", label: "Chemie, Physik und Biologie", schools: [0, 5], access: [ACC.HSA, ACC.MR] },
+  { id: 4, cat: "Berufsschulen", catCode: "Berufsschulen", label: "Drucktechnik", schools: [3, 4], access: [ACC.HSA, ACC.MR] },
+  { id: 5, cat: "Berufsschulen", catCode: "Berufsschulen", label: "Elektrotechnik", schools: [3, 7, 10], access: [ACC.HSA, ACC.MR] },
+  { id: 6, cat: "Berufsschulen", catCode: "Berufsschulen", label: "Ernährung und Hauswirtschaft", schools: [2, 17], access: [ACC.HSA, ACC.MR] },
+  { id: 7, cat: "Berufsschulen", catCode: "Berufsschulen", label: "Fahrzeugtechnik", schools: [7, 11], access: [ACC.HSA, ACC.MR] },
+  { id: 8, cat: "Berufsschulen", catCode: "Berufsschulen", label: "Farbtechnik und Raumgestaltung", schools: [0, 5], access: [ACC.HSA, ACC.MR] },
+  { id: 9, cat: "Berufsschulen", catCode: "Berufsschulen", label: "Gesundheit", schools: [5, 18], access: [ACC.HSA, ACC.MR] },
+  { id: 10, cat: "Berufsschulen", catCode: "Berufsschulen", label: "Holztechnik", schools: [1], access: [ACC.HSA, ACC.MR] },
+  { id: 11, cat: "Berufsschulen", catCode: "Berufsschulen", label: "Körperpflege", schools: [2], access: [ACC.HSA, ACC.MR] },
+  { id: 12, cat: "Berufsschulen", catCode: "Berufsschulen", label: "Metalltechnik", schools: [6, 7, 8, 11], access: [ACC.HSA, ACC.MR] },
+  { id: 13, cat: "Berufsschulen", catCode: "Berufsschulen", label: "Textiltechnik und Bekleidung", schools: [5], access: [ACC.HSA, ACC.MR] },
+  { id: 14, cat: "Berufsschulen", catCode: "Berufsschulen", label: "Wirtschaft und Verwaltung", schools: [3, 12, 13, 14, 15], access: [ACC.HSA, ACC.MR] },
+
+  // ---- SONDERBERUFSSCHULEN ----
+  { id: 15, cat: "Sonderberufsschulen", catCode: "Sonderberufsschulen", label: "Sonderberufsschulen (gewerblich, hauswirtschaftlich, landwirtschaftlich)", schools: [0, 1, 2, 7, 17, 19], access: [ACC.OHNE, ACC.HSA] },
+
+  // ---- VABO ----
+  { id: 16, cat: "VABO", catCode: "VABO", label: "Vorqualifizierungsjahr Arbeit/Beruf – Erwerb Deutschkenntnissen (VABO)", schools: [0, 1, 2, 4, 6, 8, 9, 14, 15, 17], access: [ACC.OHNE] },
+
+  // ---- AVdual ----
+  { id: 17, cat: "AVdual", catCode: "AVdual", label: "Ausbildungsvorbereitung dual (AVdual)", schools: [0, 1, 2, 4, 8, 9, 15, 17], access: [ACC.OHNE, ACC.HSA] },
+
+  // ---- 1-JÄHRIGE BERUFSFACHSCHULE ----
+  { id: 18, cat: "1-jährige Berufsfachschule", catCode: "1BFS", label: "Bautechnik", schools: [9], access: [ACC.HSA] },
+  { id: 19, cat: "1-jährige Berufsfachschule", catCode: "1BFS", label: "Druck-/Medientechnik", schools: [4], access: [ACC.HSA] },
+  { id: 20, cat: "1-jährige Berufsfachschule", catCode: "1BFS", label: "Fahrzeugtechnik", schools: [7, 11], access: [ACC.HSA] },
+  { id: 21, cat: "1-jährige Berufsfachschule", catCode: "1BFS", label: "Farbtechnik und Raumgestaltung", schools: [0], access: [ACC.HSA] },
+  { id: 22, cat: "1-jährige Berufsfachschule", catCode: "1BFS", label: "Fotografie", schools: [4], access: [ACC.HSA] },
+  { id: 23, cat: "1-jährige Berufsfachschule", catCode: "1BFS", label: "Glas-/Fensterbau", schools: [1], access: [ACC.HSA] },
+  { id: 24, cat: "1-jährige Berufsfachschule", catCode: "1BFS", label: "Holztechnik", schools: [1], access: [ACC.HSA] },
+  { id: 25, cat: "1-jährige Berufsfachschule", catCode: "1BFS", label: "Informationselektronik", schools: [3], access: [ACC.HSA] },
+  { id: 26, cat: "1-jährige Berufsfachschule", catCode: "1BFS", label: "Körperpflege", schools: [2], access: [ACC.HSA] },
+  { id: 27, cat: "1-jährige Berufsfachschule", catCode: "1BFS", label: "Metalltechnik – Feinwerk- und Metallbautechnik", schools: [8], access: [ACC.HSA] },
+  { id: 28, cat: "1-jährige Berufsfachschule", catCode: "1BFS", label: "Sanitär-, Heizungs-, Klimatechnik", schools: [8], access: [ACC.HSA] },
+
+  // ---- 2-JÄHRIGE BERUFSFACHSCHULE ----
+  { id: 29, cat: "2-jährige Berufsfachschule", catCode: "2BFS", label: "Elektrotechnik", schools: [10], access: [ACC.HSA] },
+  { id: 30, cat: "2-jährige Berufsfachschule", catCode: "2BFS", label: "Fahrzeugtechnik", schools: [7], access: [ACC.HSA] },
+  { id: 31, cat: "2-jährige Berufsfachschule", catCode: "2BFS", label: "Gesundheit und Pflege", schools: [18], access: [ACC.HSA] },
+  { id: 32, cat: "2-jährige Berufsfachschule", catCode: "2BFS", label: "Hauswirtschaft und Ernährung", schools: [17], access: [ACC.HSA] },
+  { id: 33, cat: "2-jährige Berufsfachschule", catCode: "2BFS", label: "Holztechnik", schools: [1], access: [ACC.HSA] },
+  { id: 34, cat: "2-jährige Berufsfachschule", catCode: "2BFS", label: "Metalltechnik", schools: [6, 8], access: [ACC.HSA] },
+  { id: 35, cat: "2-jährige Berufsfachschule", catCode: "2BFS", label: "Wirtschaft und Verwaltung (Wirtschaftsschule)", schools: [15, 16], access: [ACC.HSA] },
+
+  // ---- 3-JÄHRIGE BERUFSFACHSCHULE ----
+  { id: 36, cat: "3-jährige Berufsfachschule", catCode: "3BFS", label: "Sozialpädagogische Assistenz – praxisintegriert", schools: [17], access: [ACC.HSA] },
+
+  // ---- BERUFSKOLLEGS GEWERBLICH Vollzeit ----
+  { id: 37, cat: "Berufskollegs (gew., Vollzeit)", catCode: "Berufskolleg", label: "Chemisch-techn. / Pharmazeutisch-techn. / Physikalisch-techn. Assistent/-in (2 J.)", schools: [5], access: [ACC.MR] },
+  { id: 38, cat: "Berufskollegs (gew., Vollzeit)", catCode: "Berufskolleg", label: "Elektrotechnische Assistent/-in (2 J.)", schools: [10], access: [ACC.MR] },
+  { id: 39, cat: "Berufskollegs (gew., Vollzeit)", catCode: "Berufskolleg", label: "Grafik-Design (3 J.)", schools: [4], access: [ACC.MR] },
+  { id: 40, cat: "Berufskollegs (gew., Vollzeit)", catCode: "Berufskolleg", label: "Mode und Design (3 J.)", schools: [5], access: [ACC.MR] },
+  { id: 41, cat: "Berufskollegs (gew., Vollzeit)", catCode: "Berufskolleg", label: "Produktdesign (2 J.)", schools: [1, 6], access: [ACC.MR] },
+  { id: 42, cat: "Berufskollegs (gew., Vollzeit)", catCode: "Berufskolleg", label: "Technisches Berufskolleg I (1 J.)", schools: [0, 3, 9], access: [ACC.MR] },
+  { id: 43, cat: "Berufskollegs (gew., Vollzeit)", catCode: "Berufskolleg", label: "Technisches Berufskolleg II (1 J.)", schools: [0, 3, 9], access: [ACC.MR] },
+
+  // ---- BERUFSKOLLEGS GEWERBLICH Duales System ----
+  { id: 44, cat: "Berufskollegs (gew., Dual/Teilzeit)", catCode: "Berufskolleg", label: "Bautechnik – Duales Berufskolleg", schools: [9], access: [ACC.MR] },
+  { id: 45, cat: "Berufskollegs (gew., Dual/Teilzeit)", catCode: "Berufskolleg", label: "Elektronik – Duales Berufskolleg", schools: [7], access: [ACC.MR] },
+  { id: 46, cat: "Berufskollegs (gew., Dual/Teilzeit)", catCode: "Berufskolleg", label: "Metalltechnik – Duales Berufskolleg", schools: [7], access: [ACC.MR] },
+  { id: 47, cat: "Berufskollegs (gew., Dual/Teilzeit)", catCode: "Berufskolleg", label: "Sanitär-, Heizungs- und Klimatechnik – Duales BK", schools: [8], access: [ACC.MR] },
+
+  // ---- BERUFSKOLLEGS KAUFMÄNNISCH Vollzeit ----
+  { id: 48, cat: "Berufskollegs (kfm., Vollzeit)", catCode: "Berufskolleg", label: "Kaufmännisches Berufskolleg I – Höhere Handelsschule (1 J.)", schools: [16], access: [ACC.MR] },
+  { id: 49, cat: "Berufskollegs (kfm., Vollzeit)", catCode: "Berufskolleg", label: "Kaufmännisches Berufskolleg II – Höhere Handelsschule Oberstufe (1 J.)", schools: [16], access: [ACC.MR] },
+  { id: 50, cat: "Berufskollegs (kfm., Vollzeit)", catCode: "Berufskolleg", label: "Kaufmännisches Berufskolleg Fremdsprachen (2 J.)", schools: [13], access: [ACC.MR] },
+  { id: 51, cat: "Berufskollegs (kfm., Vollzeit)", catCode: "Berufskolleg", label: "Kaufmännisches Berufskolleg Wirtschaftsinformatik (2 J.)", schools: [13], access: [ACC.MR] },
+  { id: 52, cat: "Berufskollegs (kfm., Vollzeit)", catCode: "Berufskolleg", label: "Sport- und Vereinsmanagement (3 J.)", schools: [15], access: [ACC.MR] },
+
+  // ---- BERUFSKOLLEGS DUAL für Abiturient/-innen ----
+  { id: 53, cat: "Berufskollegs (Dual für Abitur)", catCode: "Berufskolleg", label: "Wirtschaft und Verwaltung – verschiedene (2–3 J., für Abiturient/-innen)", schools: [12, 13, 15], access: [ACC.ABITUR] },
+
+  // ---- BERUFSKOLLEGS HAUSWIRTSCHAFT / SOZIALES / LANDWIRTSCHAFT ----
+  { id: 54, cat: "Berufskollegs (hws./soz./landwirtsch.)", catCode: "Berufskolleg", label: "Biotechnologische Assistent/-in (2 J.)", schools: [19], access: [ACC.MR] },
+  { id: 55, cat: "Berufskollegs (hws./soz./landwirtsch.)", catCode: "Berufskolleg", label: "Ernährung und Haushaltsmanagement I (2 J.)", schools: [17], access: [ACC.MR] },
+  { id: 56, cat: "Berufskollegs (hws./soz./landwirtsch.)", catCode: "Berufskolleg", label: "Ernährung und Haushaltsmanagement II (1 J.)", schools: [17], access: [ACC.MR] },
+  { id: 57, cat: "Berufskollegs (hws./soz./landwirtsch.)", catCode: "Berufskolleg", label: "Gesundheit und Pflege I (1 J.)", schools: [18], access: [ACC.MR] },
+  { id: 58, cat: "Berufskollegs (hws./soz./landwirtsch.)", catCode: "Berufskolleg", label: "Gesundheit und Pflege II (1 J.)", schools: [18], access: [ACC.MR] },
+  { id: 59, cat: "Berufskollegs (hws./soz./landwirtsch.)", catCode: "Berufskolleg", label: "Sozialpädagogik (1 J., Vollzeit)", schools: [17], access: [ACC.MR] },
+  { id: 60, cat: "Berufskollegs (hws./soz./landwirtsch.)", catCode: "Berufskolleg", label: "Soziales – Duales BK (1 J., Teilzeit)", schools: [18], access: [ACC.MR] },
+  { id: 61, cat: "Berufskollegs (hws./soz./landwirtsch.)", catCode: "Berufskolleg", label: "Sozialpädagogik praxisintegriert – Fachschule (3 J., Teilzeit)", schools: [17], access: [ACC.MR] },
+
+  // ---- BERUFLICHE GYMNASIEN ----
+  { id: 62, cat: "Berufliche Gymnasien", catCode: "Gymnasium", label: "Technisches Gymnasium – Angewandte Naturwissenschaften (TGN)", schools: [5], access: [ACC.MR] },
+  { id: 63, cat: "Berufliche Gymnasien", catCode: "Gymnasium", label: "Technisches Gymnasium – Elektro- und Informationstechnik (TGE)", schools: [10], access: [ACC.MR] },
+  { id: 64, cat: "Berufliche Gymnasien", catCode: "Gymnasium", label: "Technisches Gymnasium – Gestaltungs- und Medientechnik (TGG)", schools: [4, 6], access: [ACC.MR] },
+  { id: 65, cat: "Berufliche Gymnasien", catCode: "Gymnasium", label: "Technisches Gymnasium – Informationstechnik (TGI)", schools: [3], access: [ACC.MR] },
+  { id: 66, cat: "Berufliche Gymnasien", catCode: "Gymnasium", label: "Technisches Gymnasium – Mechatronik (TGM)", schools: [6, 11], access: [ACC.MR] },
+  { id: 67, cat: "Berufliche Gymnasien", catCode: "Gymnasium", label: "Technisches Gymnasium – Technik und Management (TGTM)", schools: [6, 11], access: [ACC.MR] },
+  { id: 68, cat: "Berufliche Gymnasien", catCode: "Gymnasium", label: "Technisches Gymnasium – sechsjährige Aufbauform ab Klasse 8", schools: [6], access: [ACC.HSA, ACC.MR] },
+  { id: 69, cat: "Berufliche Gymnasien", catCode: "Gymnasium", label: "Technisches Gymnasium – Umwelttechnik (TGU)", schools: [9, 10], access: [ACC.MR] },
+  { id: 70, cat: "Berufliche Gymnasien", catCode: "Gymnasium", label: "Wirtschaftsgymnasium – Internationale Wirtschaft (WGI)", schools: [16], access: [ACC.MR] },
+  { id: 71, cat: "Berufliche Gymnasien", catCode: "Gymnasium", label: "Wirtschaftsgymnasium – Wirtschaft (WGW)", schools: [13, 14, 15, 16], access: [ACC.MR] },
+  { id: 72, cat: "Berufliche Gymnasien", catCode: "Gymnasium", label: "Ernährungswissenschaftliches Gymnasium (EG)", schools: [17], access: [ACC.MR] },
+  { id: 73, cat: "Berufliche Gymnasien", catCode: "Gymnasium", label: "Sozial- und Gesundheitswiss. Gymnasium – Gesundheit (SGGG)", schools: [18], access: [ACC.MR] },
+  { id: 74, cat: "Berufliche Gymnasien", catCode: "Gymnasium", label: "Sozial- und Gesundheitswiss. Gymnasium – Soziales (SGGS)", schools: [17], access: [ACC.MR] },
+
+  // ---- ZWEITER BILDUNGSWEG ----
+  { id: 75, cat: "Zweiter Bildungsweg", catCode: "Zweiter Bildungsweg", label: "Berufsaufbauschule zur Fachschulreife (gew.-techn. oder kfm.)", schools: [2, 12], access: [ACC.HSA, ACC.AUSBILDUNG] },
+  { id: 76, cat: "Zweiter Bildungsweg", catCode: "Zweiter Bildungsweg", label: "1-jähriges Berufskolleg zur Fachhochschulreife (versch. Richtungen)", schools: [2, 12, 18], access: [ACC.MR, ACC.AUSBILDUNG] },
+  { id: 77, cat: "Zweiter Bildungsweg", catCode: "Zweiter Bildungsweg", label: "Technische Oberschule oder Wirtschaftsoberschule", schools: [2, 12], access: [ACC.MR, ACC.AUSBILDUNG] },
+
+  // ---- FACHSCHULEN (MEISTERSCHULEN) ----
+  { id: 78, cat: "Fachschulen (Meisterschulen)", catCode: "Fachschule", label: "Bautechnik", schools: [9], access: [ACC.AUSBILDUNG] },
+  { id: 79, cat: "Fachschulen (Meisterschulen)", catCode: "Fachschule", label: "Chemie, Physik und Biologie", schools: [5], access: [ACC.AUSBILDUNG] },
+  { id: 80, cat: "Fachschulen (Meisterschulen)", catCode: "Fachschule", label: "Drucktechnik", schools: [4], access: [ACC.AUSBILDUNG] },
+  { id: 81, cat: "Fachschulen (Meisterschulen)", catCode: "Fachschule", label: "Ernährung", schools: [2], access: [ACC.AUSBILDUNG] },
+  { id: 82, cat: "Fachschulen (Meisterschulen)", catCode: "Fachschule", label: "Fahrzeugtechnik", schools: [11], access: [ACC.AUSBILDUNG] },
+  { id: 83, cat: "Fachschulen (Meisterschulen)", catCode: "Fachschule", label: "Farbtechnik und Raumgestaltung", schools: [0, 5], access: [ACC.AUSBILDUNG] },
+  { id: 84, cat: "Fachschulen (Meisterschulen)", catCode: "Fachschule", label: "Gesundheit", schools: [18], access: [ACC.AUSBILDUNG] },
+  { id: 85, cat: "Fachschulen (Meisterschulen)", catCode: "Fachschule", label: "Gießereitechnik", schools: [11], access: [ACC.AUSBILDUNG] },
+  { id: 86, cat: "Fachschulen (Meisterschulen)", catCode: "Fachschule", label: "Holztechnik", schools: [1], access: [ACC.AUSBILDUNG] },
+  { id: 87, cat: "Fachschulen (Meisterschulen)", catCode: "Fachschule", label: "Installations- und Heizungsbau", schools: [8], access: [ACC.AUSBILDUNG] },
+  { id: 88, cat: "Fachschulen (Meisterschulen)", catCode: "Fachschule", label: "Metalltechnik", schools: [6, 8], access: [ACC.AUSBILDUNG] },
+  { id: 89, cat: "Fachschulen (Meisterschulen)", catCode: "Fachschule", label: "Textiltechnik und Bekleidung", schools: [5], access: [ACC.AUSBILDUNG] },
+
+  // ---- TECHNIKERSCHULEN ----
+  { id: 90, cat: "Fachschulen für Technik (Technikerschulen)", catCode: "Technikerschule", label: "Automatisierungstechnik / Mechatronik", schools: [10], access: [ACC.AUSBILDUNG] },
+  { id: 91, cat: "Fachschulen für Technik (Technikerschulen)", catCode: "Technikerschule", label: "Bautechnik", schools: [9], access: [ACC.AUSBILDUNG] },
+  { id: 92, cat: "Fachschulen für Technik (Technikerschulen)", catCode: "Technikerschule", label: "Druck- und Medientechnik", schools: [4], access: [ACC.AUSBILDUNG] },
+  { id: 93, cat: "Fachschulen für Technik (Technikerschulen)", catCode: "Technikerschule", label: "Elektrotechnik", schools: [10], access: [ACC.AUSBILDUNG] },
+  { id: 94, cat: "Fachschulen für Technik (Technikerschulen)", catCode: "Technikerschule", label: "Farb- und Lacktechnik", schools: [0], access: [ACC.AUSBILDUNG] },
+  { id: 95, cat: "Fachschulen für Technik (Technikerschulen)", catCode: "Technikerschule", label: "Gießereitechnik", schools: [11], access: [ACC.AUSBILDUNG] },
+  { id: 96, cat: "Fachschulen für Technik (Technikerschulen)", catCode: "Technikerschule", label: "Heizungs-, Lüftungs- und Klimatechnik", schools: [8], access: [ACC.AUSBILDUNG] },
+  { id: 97, cat: "Fachschulen für Technik (Technikerschulen)", catCode: "Technikerschule", label: "Holztechnik", schools: [1], access: [ACC.AUSBILDUNG] },
+  { id: 98, cat: "Fachschulen für Technik (Technikerschulen)", catCode: "Technikerschule", label: "Informationstechnik", schools: [3], access: [ACC.AUSBILDUNG] },
+  { id: 99, cat: "Fachschulen für Technik (Technikerschulen)", catCode: "Technikerschule", label: "Kraftfahrzeugtechnik", schools: [11], access: [ACC.AUSBILDUNG] },
+  { id: 100, cat: "Fachschulen für Technik (Technikerschulen)", catCode: "Technikerschule", label: "Maschinentechnik", schools: [6, 7, 11], access: [ACC.AUSBILDUNG] },
+
+  // ---- FACHSCHULEN FÜR GESTALTUNG ----
+  { id: 101, cat: "Fachschulen für Gestaltung", catCode: "Fachschule Gestaltung", label: "Farbtechnik und Raumgestaltung", schools: [0], access: [ACC.AUSBILDUNG] },
+  { id: 102, cat: "Fachschulen für Gestaltung", catCode: "Fachschule Gestaltung", label: "Möbel- und Innenraumgestaltung", schools: [1], access: [ACC.AUSBILDUNG] },
+  { id: 103, cat: "Fachschulen für Gestaltung", catCode: "Fachschule Gestaltung", label: "Werbegestaltung", schools: [0], access: [ACC.AUSBILDUNG] },
+
+  // ---- SONSTIGE FACHSCHULEN ----
+  { id: 104, cat: "Sonstige Fachschulen", catCode: "Sonstige Fachschule", label: "Management Fachrichtung Hauswirtschaft", schools: [17], access: [ACC.AUSBILDUNG] },
+  { id: 105, cat: "Sonstige Fachschulen", catCode: "Sonstige Fachschule", label: "Organisation und Führung", schools: [17], access: [ACC.AUSBILDUNG] },
+  { id: 106, cat: "Sonstige Fachschulen", catCode: "Sonstige Fachschule", label: "Visuelle Kommunikation", schools: [4], access: [ACC.AUSBILDUNG] },
+
+  // ---- AKADEMIE ----
+  { id: 107, cat: "Akademie für Betriebsmanagement im Handwerk", catCode: "Akademie", label: "Farbtechnik (Akademie)", schools: [0], access: [ACC.AUSBILDUNG] },
+  { id: 108, cat: "Akademie für Betriebsmanagement im Handwerk", catCode: "Akademie", label: "Kursangebote auf Nachfrage", schools: [0, 2, 4, 5, 6, 7, 8, 9, 18], access: [ACC.AUSBILDUNG] },
+
+];
 
 // ---- FILTER LOGIC ----
 function smGetFiltered() {
